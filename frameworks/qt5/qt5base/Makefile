@@ -12,7 +12,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5base
-PKG_RELEASE:=1
+PKG_RELEASE:=1 #cotequeiroz
 PKG_HASH:=b04815058c18058b6ba837206756a2c87d1391f07a0dcb0dd314f970fd041592
 
 include ../common.mk
@@ -74,6 +74,7 @@ define Package/qt5base/Default
   TITLE:=Qt5base
   URL:=http://qt.io
   MAINTAINER:=Mirko Vogt <mirko-openwrt@nanl.de>
+  DEPENDS += @BROKEN
 endef
 
 define Package/qt5base-core
@@ -375,7 +376,7 @@ define Build/Configure
 			--opengles3=no \
 			--egl=$(if $(CONFIG_BUILD_qt5base-gui_OPENGL_OPENGLES2),yes,no) \
 			--xcb-xlib=no \
-			--qpa=$(if $(CONFIG_PACKAGE_qt5base-plugin-platforms-linuxfb),linuxfb,) \
+			$(if $(CONFIG_PACKAGE_qt5base-plugin-platforms-linuxfb),--qpa=linuxfb,) \
 			--directfb=no \
 			--eglfs=$(if $(CONFIG_BUILD_qt5base-gui_OPENGL_OPENGLES2),yes,no) \
 			--gbm=$(if $(CONFIG_BUILD_qt5base-gui_DRM),yes,no) \
