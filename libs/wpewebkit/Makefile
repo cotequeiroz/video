@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=wpewebkit
 PKG_VERSION:=2.46.7
-PKG_RELEASE:=1
+PKG_RELEASE:=1 #cotequeiroz
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://wpewebkit.org/releases
@@ -65,7 +65,7 @@ define Package/libwpewebkit
 	   +libgst1transcoder +libgst1video +libinput +libjpeg +libpng \
 	   +libseccomp +libsoup3 +libsqlite3 +libtasn1 +libudev +libwayland \
 	   +libwebp +libwpe +libxml2 +libxslt +zlib \
-	   @(arm_v7||i386||i686||ARCH_64BIT)
+	   @(arm_v7||i386||i686||ARCH_64BIT) @BROKEN
 endef
 
 define Package/libwpewebkit/description
