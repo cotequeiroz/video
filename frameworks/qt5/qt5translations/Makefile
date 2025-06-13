@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5translations
-PKG_RELEASE:=1
+PKG_RELEASE:=1# cotequeiroz
 PKG_HASH:=415dbbb82a75dfc9a7be969e743bee54c0e6867be37bce4cf8f03da39f20112a
 
 include ../common.mk
@@ -25,6 +25,7 @@ define Package/qt5translations
   TITLE:=qt5translations
   URL:=http://qt.io
   MAINTAINER:=Mirko Vogt <mirko-openwrt@nanl.de>
+  DEPENDS:=qt5base-core
 endef
 
 define Package/qt5translations/install
