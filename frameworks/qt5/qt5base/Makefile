@@ -12,7 +12,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5base
-PKG_RELEASE:=1
+PKG_RELEASE:=1 #cotequeiroz
 PKG_HASH:=b04815058c18058b6ba837206756a2c87d1391f07a0dcb0dd314f970fd041592
 
 include ../common.mk
@@ -74,6 +74,7 @@ define Package/qt5base/Default
   TITLE:=Qt5base
   URL:=http://qt.io
   MAINTAINER:=Mirko Vogt <mirko-openwrt@nanl.de>
+  DEPENDS += @BROKEN
 endef
 
 define Package/qt5base-core
