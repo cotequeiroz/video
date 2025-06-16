@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mesa
 PKG_VERSION:=25.0.5
-PKG_RELEASE:=1
+PKG_RELEASE:=1# cotequeiroz
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://archive.mesa3d.org/
@@ -64,7 +64,7 @@ define Package/mesa/Default
   SECTION:=libs
   CATEGORY:=Libraries
   SUBMENU:=Video
-  DEPENDS:=+powerpc:libatomic
+  DEPENDS:=+(powerpc||mips||mipsel):libatomic
   TITLE:=Mesa3D
   URL:=https://www.mesa3d.org
 endef
