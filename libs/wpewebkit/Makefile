@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=wpewebkit
 PKG_VERSION:=2.52.3
-PKG_RELEASE:=1
+PKG_RELEASE:=1# cotequeiroz remove patch with bump
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://wpewebkit.org/releases
