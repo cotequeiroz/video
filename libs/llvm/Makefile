@@ -5,7 +5,7 @@ PKG_VERSION:=22.1.5
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).src.tar.xz
 PKG_SOURCE_URL:=https://github.com/llvm/llvm-project/releases/download/llvmorg-$(PKG_VERSION)
-PKG_HASH:=7972b87b705a003ce70ab55f9f0fb495d156887cba0eb296d284731139118e2c
+PKG_HASH:=7972b87b705a003ce70ab55f9f0fb495d156887cba0eb296d284731139118e2c# cotequeiroz
 PKG_CPE_ID:=cpe:/a:llvm:llvm
 
 SPIRV_LLVM_TRANSLATOR_VERSION:=22.1.2
@@ -174,7 +174,7 @@ define Package/llvm
   CATEGORY:=Development
   TITLE:=LLVM
   URL:=https://llvm.org/
-  DEPENDS:=@(!arc&&!powerpc64&&!powerpc||BROKEN)
+  DEPENDS:=@(!arc&&!mips&&!powerpc64&&!powerpc||BROKEN)
   BUILDONLY:=1
 endef
 
@@ -187,7 +187,7 @@ define Package/libclang
   CATEGORY:=Libraries
   TITLE:=LLVM Clang library
   URL:=https://llvm.org/
-  DEPENDS:=@(!arc&&!powerpc64&&!powerpc||BROKEN) +libatomic +libstdcpp
+  DEPENDS:=@(!arc&&!mips&&!powerpc64&&!powerpc||BROKEN) +libatomic +libstdcpp
 endef
 
 define Package/libclang-cpp
@@ -195,7 +195,7 @@ define Package/libclang-cpp
   CATEGORY:=Libraries
   TITLE:=LLVM Clang C++ library
   URL:=https://llvm.org/
-  DEPENDS:=@(!arc&&!powerpc64&&!powerpc||BROKEN) +libatomic +libstdcpp
+  DEPENDS:=@(!arc&&!mips&&!powerpc64&&!powerpc||BROKEN) +libatomic +libstdcpp
 endef
 
 define Package/liblto
@@ -203,7 +203,7 @@ define Package/liblto
   CATEGORY:=Libraries
   TITLE:=LLVM LTO library
   URL:=https://llvm.org/
-  DEPENDS:=@(!arc&&!powerpc64&&!powerpc||BROKEN) +libatomic +libstdcpp
+  DEPENDS:=@(!arc&&!mips&&!powerpc64&&!powerpc||BROKEN) +libatomic +libstdcpp
 endef
 
 define Package/libremarks
@@ -211,7 +211,7 @@ define Package/libremarks
   CATEGORY:=Libraries
   TITLE:=LLVM diagnostic remarks library
   URL:=https://llvm.org/
-  DEPENDS:=@(!arc&&!powerpc64&&!powerpc||BROKEN) +libatomic +libstdcpp
+  DEPENDS:=@(!arc&&!mips&&!powerpc64&&!powerpc||BROKEN) +libatomic +libstdcpp
 endef
 
 define Host/Prepare

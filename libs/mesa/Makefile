@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mesa
 PKG_VERSION:=26.1.2
-PKG_RELEASE:=1
+PKG_RELEASE:=1# cotequeiroz llvm internal error
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://archive.mesa3d.org/
@@ -81,7 +81,7 @@ config HAVE_MESA
 
 config MESA_USE_LLVM
 	bool "Use LLVM to build MESA"
-	depends on aarch64||arm||i386||i686||loongarch64||mips||mipsel||mips64||mips64el||riscv64||x86_64
+	depends on aarch64||arm||i386||i686||loongarch64||mipsel||mips64||mips64el||riscv64||x86_64
 	default y
 	help
 	  Build LLVM (the heavy 'llvm-mesa' static archive) and link it
@@ -342,7 +342,7 @@ endef
 define Package/libvulkan-imagination
 $(call Package/mesa/Default)
   DEPENDS+=+libatomic +libdisplay-info +libdrm +libexpat +libstdcpp +libudev +libwayland +libzstd \
-	   +zlib @(aarch64||arm||mips||mips64||mipsel||mips64el||riscv64)
+	   +zlib @(aarch64||arm||mips64||mipsel||mips64el||riscv64)
   TITLE+= Imagination PowerVR driver (EXPERIMENTAL)
   VARIANT:=vulkan
 endef
@@ -446,7 +446,7 @@ endef
 define Package/libvulkan-virtio
 $(call Package/mesa/Default)
   TITLE+= virtio-gpu Vulkan driver (venus)
-  DEPENDS+=+libdisplay-info +libdrm +libstdcpp +libudev +libwayland +libzstd +zlib
+  DEPENDS+=+libdisplay-info +libdrm +libstdcpp +libudev +libwayland +libzstd +zlib @!mips
   VARIANT:=vulkan
 endef
 
